@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Post
 
@@ -17,8 +17,12 @@ def store(request):
     # store data
     if request.method == 'POST':
         pass  # Add this to avoid syntax error
-
     return HttpResponse('Invalid method', status=404)
+
+def show(request, id):
+    post = get_object_or_404(Post, pk=id)
+    return render(request, 'show.html' , {'post':post})
+
 def edit(request):
     return render(request, 'edit.html')
 
