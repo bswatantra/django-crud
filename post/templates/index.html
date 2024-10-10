@@ -1,0 +1,17 @@
+{% extends "layout.html" %} {% block title %} All Posts {% endblock %} 
+
+{% block content %}
+
+<p class="text-blue-700">All Posts Comes here</p>
+
+{% for post in posts %}
+    <div>
+    <img src="{{post.thumbnail.url}}" alt="">
+    <p>{{post.title}}</p>
+    <p>{{post.content}}</p>
+    </div>
+{% endfor %}
+
+{% endblock %}
+
+
